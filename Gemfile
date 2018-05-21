@@ -22,6 +22,7 @@ group :development, :test do
   gem 'pry-byebug', '~> 3.6'
   gem 'pry-rails', '~> 0.3.6'
   gem 'database_cleaner'
+  gem 'faker', '~> 1.8', '>= 1.8.7'
 end
 
 group :development do
