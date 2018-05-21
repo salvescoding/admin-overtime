@@ -19,8 +19,9 @@ group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'rspec-rails', '~> 3.7', '>= 3.7.2'
   gem 'capybara', '~> 3.1'
-  gem 'pry-byebug'
-  gem 'pry-rails'
+  gem 'pry-byebug', '~> 3.6'
+  gem 'pry-rails', '~> 0.3.6'
+  gem 'database_cleaner'
 end
 
 group :development do
