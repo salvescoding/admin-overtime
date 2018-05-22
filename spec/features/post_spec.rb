@@ -1,7 +1,10 @@
 require 'rails_helper'
 
 describe 'Posts' do
-
+  before do
+    @user = User.create!(email: "po@po.com", first_name: "Sergio", last_name: "Alves", password: "password", password_confirmation: "password")
+    login_as(@user, scope: :user)
+  end
   describe 'navigate' do
     describe 'index' do
 
@@ -10,12 +13,17 @@ describe 'Posts' do
         expect(page.status_code).to eq(200)
       end
 
+      it 'has a list of posts' do
+        post1 = Post.create!(date: Date.today, rationale: "post1", user_id: @user.id)
+        post2 = Post.create!(date: Date.today, rationale: "post2", user_id: @user.id)
+        visit posts_path
+        expect(page).to have_content(/post1|post2/)
+      end
+
     end
 
     describe 'new' do
       before do
-        user = User.create!(email: "po@po.com", first_name: "Sergio", last_name: "Alves", password: "password", password_confirmation: "password")
-        login_as(user, scope: :user)
         visit new_post_path
       end
 

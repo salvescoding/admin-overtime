@@ -1,7 +1,7 @@
 require 'rails_helper'
 
-describe 'navigate' do
-  describe 'homepage' do
+describe 'Homepage' do
+  describe 'navigate' do
     it '200 OK' do
       visit root_path
       expect(page.status_code).to eq(200)
