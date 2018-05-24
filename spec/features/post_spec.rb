@@ -21,6 +21,12 @@ describe 'Posts' do
         expect(page).to have_content(/rationale|content/)
       end
 
+      it 'link new post' do
+        visit root_path
+        click_link("new_post_from_nav")
+        expect(page.status_code).to eq(200)
+        expect(page).to have_content("New Post")
+      end
     end
   end
 
@@ -84,5 +90,17 @@ describe 'Posts' do
     end
   end
 
+  describe 'destroy' do
+    before do
+      @post = create(:post)
 
+    end
+    it 'click on link destroy' do
+      visit posts_path
+      click_link("delete_#{@post.id}")
+      expect(page.status_code).to eq(200)
+    end
+
+
+  end
 end
