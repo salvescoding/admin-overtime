@@ -23,6 +23,7 @@ group :development, :test do
   gem 'pry-rails', '~> 0.3.6'
   gem 'database_cleaner'
   gem 'faker', '~> 1.8', '>= 1.8.7'
+  gem 'factory_bot_rails', '~> 4.8', '>= 4.8.2'
 end
 
 group :development do
