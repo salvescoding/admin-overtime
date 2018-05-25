@@ -16,7 +16,7 @@
        <%= link_to 'New Post', new_post_path, class: "nav-link", id: "new_post_from_nav" %>
       </li>
       <li class="nav-item">
-        <%= link_to 'Edit Details', edit_user_registration_path, class: "nav-link" %>
+        <%= link_to 'TODO ADMIN Dashboard', root_path, class: "nav-link" %>
       </li>
       <li class="nav-item">
        <%= link_to 'Logout', destroy_user_session_path, class: "nav-link", method: :delete %>
@@ -24,9 +24,6 @@
       <% else %>
       <li class="nav-item">
         <%= link_to 'Login',new_user_session_path, class: "nav-link" %>
-      </li>
-      <li class="nav-item">
-        <%= link_to 'Register',new_user_registration_path, class: "nav-link" %>
       </li>
       <% end %>
     </ul>
