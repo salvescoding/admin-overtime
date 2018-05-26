@@ -16,8 +16,9 @@ describe 'Approval workflow' do
       logout(:user)
       user = create(:user)
       login_as(user, scope: :user)
+      post = create(:post, user_id: user.id)
 
-      visit edit_post_path(@post)
+      visit edit_post_path(post)
       expect(page).to_not have_content(/Approved|Rejected|Submitted/)
     end
 

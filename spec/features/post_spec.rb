@@ -66,25 +66,26 @@ describe 'Posts' do
 
   describe 'edit' do
     before do
-      @post = create(:post)
-    end
-
-    describe 'navigate' do
-      it 'can reach the edit page' do
-        visit posts_path
-        click_link("edit_#{@post.id}")
-        expect(page.status_code).to eq(200)
-      end
-
+      @post = create(:post, user_id: @user.id)
     end
 
     describe 'update' do
-      it 'can be edited and saved' do
+
+      it 'can be edited by an authorized user' do
         visit edit_post_path(@post)
         fill_in 'post[date]', with: Date.yesterday
         fill_in 'post[rationale]', with: "changed"
         click_on "Save"
         expect(page).to have_content("changed")
+      end
+
+      it 'cannot be edit if not is current user' do
+        logout(:user)
+        user = create(:not_authorised_user)
+        login_as(user, scope: :user)
+        visit edit_post_path(@post)
+
+        expect(current_path).to eq(root_path)
       end
 
     end
