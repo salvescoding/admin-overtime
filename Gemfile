@@ -41,5 +41,5 @@ gem 'bootstrap', '~> 4.1', '>= 4.1.1'
 gem 'gritter', '~> 1.2'
 gem 'administrate', '~> 0.10.0'
 gem 'bourbon', '~> 5.0'
-
+gem 'pundit', '~> 1.1'
 
