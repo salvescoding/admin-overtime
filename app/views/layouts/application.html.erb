@@ -19,6 +19,6 @@
       <%= yield %>
 
     </div>
-    <%= js add_gritter(flash[:notice], :image => :notice, :title => "Overtime App", :time => 2000) %>
+    <%= render 'shared/alerts' %>
   </body>
 </html>
