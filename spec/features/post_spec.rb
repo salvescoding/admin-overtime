@@ -8,25 +8,30 @@ describe 'Posts' do
   describe 'index' do
     describe 'navigate' do
 
-      it '200 OK' do
+      it 'index page can be accessed' do
         visit posts_path
         expect(page.status_code).to eq(200)
       end
 
-      it 'has a list of posts' do
-        post1 = create(:post)
-        post2 = create(:second_post)
-        visit posts_path
-
-        expect(page).to have_content(/rationale|content/)
-      end
-
-      it 'link new post' do
+      it 'link to new post' do
         visit root_path
         click_link("new_post_from_nav")
         expect(page.status_code).to eq(200)
         expect(page).to have_content("New Post")
       end
+
+      it 'has a scope so that only post creators can see their posts' do
+        post1 = Post.create(date: Date.today, rationale: "asdf", user_id: @user.id)
+        post2 = Post.create(date: Date.today, rationale: "asdf", user_id: @user.id)
+
+        other_user = User.create(first_name: 'Non', last_name: 'Authorized', email: "nonauth@example.com", password: "asdfasdf", password_confirmation: "asdfasdf")
+        post_from_other_user = Post.create(date: Date.today, rationale: "This post shouldn't be seen", user_id: other_user.id)
+
+        visit posts_path
+
+        expect(page).to_not have_content(/This post shouldn't be seen/)
+      end
+
     end
   end
 
@@ -93,8 +98,7 @@ describe 'Posts' do
 
   describe 'destroy' do
     before do
-      @post = create(:post)
-
+      @post = create(:post, user_id: @user.id)
     end
     it 'click on link destroy' do
       visit posts_path
