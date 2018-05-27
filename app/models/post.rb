@@ -4,8 +4,8 @@ class Post < ApplicationRecord
   enum status: { submitted: 0, approved: 1, rejected: 2 }
 
 
-  def recent_posts
-    order(created_at: :desc)
+  def self.posts_by(user)
+    order(created_at: :desc).where(user: user)
   end
 
 end
