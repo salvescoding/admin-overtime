@@ -1,2 +1,10 @@
-<p> <%= @post.date %> </p>
-<p> <%= @post.rationale %> </p>
+
+<div class="card">
+  <h5 class="card-header"><%= @post.user.first_name %></h5>
+  <div class="card-body">
+    <h5 class="card-title"><%= @post.rationale %> </h5>
+    <p class="card-text"> <%= @post.date.to_formatted_s(:long_ordinal) %> </p>
+    <p class="card-text"> <%= @post.overtime_request.to_f %> hours requested </p>
+    <%= link_to 'Edit', edit_post_path(@post), class: "btn btn-outline-primary" if policy(@post).update? %>
+  </div>
+</div>

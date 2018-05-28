@@ -38,6 +38,20 @@ describe 'Posts' do
       end
     end
 
+    describe 'show' do
+
+      describe 'navigate' do
+
+        # it 'visit show post page from index' do
+        #   visit posts_path
+        #   click_link(post_path(post))
+
+        #   expect(current_path).to eq(post_path(post))
+        # end
+
+      end
+    end
+
     describe 'new' do
       before do
         visit new_post_path
