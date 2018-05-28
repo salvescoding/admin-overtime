@@ -19,6 +19,11 @@ RSpec.describe User, type: :model do
         @user.last_name = nil
         expect(@user).to_not be_valid
       end
+
+      it 'cannot be created without a phone' do
+        @user.phone = nil
+        expect(@user).to_not be_valid
+      end
     end
   end
 
