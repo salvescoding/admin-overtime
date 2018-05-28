@@ -24,6 +24,16 @@ RSpec.describe User, type: :model do
         @user.phone = nil
         expect(@user).to_not be_valid
       end
+
+      it 'requires the phone to only have integers' do
+        @user.phone = "984ius938"
+        expect(@user).to_not be_valid
+      end
+
+      it 'accepts 9 numbers with no special characters or spaces' do
+        @user.phone = "93834329324"
+        expect(@user).to_not be_valid
+      end
     end
   end
 
