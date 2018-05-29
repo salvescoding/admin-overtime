@@ -1,5 +1,6 @@
 Post.delete_all
 User.delete_all
+AuditLog.delete_all
 puts "All posts deleted"
 puts "All users deleted"
 
@@ -26,3 +27,9 @@ puts "admin user and users created"
 end
 
 puts "100 posts have been created"
+
+50.times do
+  AuditLog.create!(user_id: @user.id,  status: 0, start_date: Date.today - 6.days)
+end
+
+puts "50 audit logs created"
