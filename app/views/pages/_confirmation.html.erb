@@ -1,0 +1,16 @@
+<% recent_audit.each do |audit| %>
+<div class="homepage-block col-xs-12 col-sm-6 col-md-3">
+  <h6>
+    <%= audit.user.full_name %>
+  </h6>
+  <p>
+    <span class="pending-details"> Week starting: </span><%= audit.start_date %>
+  </p>
+    <p>
+    <span class="pending-details"> Confirmed at: </span><%= truncate audit.end_date || 'Waiting to be confirmed' %>
+  </p>
+  <p>
+    <span class="pending-details"> Status: </span><%= status_label(audit.status) %>
+  </p>
+</div>
+<% end %>

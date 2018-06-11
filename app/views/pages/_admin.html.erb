@@ -4,4 +4,13 @@
   <div class="pending-overtime-approvals row">
     <%= render partial: 'pending_approval', locals: { pending_approvals: @pending_approvals }  %>
   </div>
+   <h2 class="text-center" >Confirmation Log</h2>
+  <hr>
+  <div class="pending-overtime-approvals row">
+    <%= render partial: 'confirmation', locals: { recent_audit: @recent_audit }  %>
+  </div>
+  <div>
+  <%= link_to  "See All Logs", audit_logs_path, class: 'btn btn-outline-success btn-block' %>
+  </div>
+  <br>
 </div>
