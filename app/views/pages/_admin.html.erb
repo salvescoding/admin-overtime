@@ -1,1 +1,7 @@
-<h1>You are at the Admin Page </h1>
+<div class="container">
+  <h2 class="text-center" >Items pending of approval</h2>
+  <hr>
+  <div class="pending-overtime-approvals row">
+    <%= render partial: 'pending_approval', locals: { pending_approvals: @pending_approvals }  %>
+  </div>
+</div>
