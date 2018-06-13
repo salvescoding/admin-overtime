@@ -5,9 +5,7 @@ class PagesController < ApplicationController
       @pending_approvals = Post.submitted
       @recent_audit = AuditLog.last(10)
     else
-      @pending_audit_logs = current_user.audit_logs
+      @pending_audit_logs = current_user.audit_logs.pending
     end
   end
-
-
 end
