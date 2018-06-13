@@ -1,1 +1,11 @@
-<h1>Welcome employee</h1>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 pending-overtime-approvals employee-blocks">
+      <h3 class="text-center">Pending your confirmation</h3>
+      <%= render partial: "pending_audit_logs", locals: { pending_audit_logs: @pending_audit_logs} %>
+    </div>
+    <div class="col-md-12 pending-overtime-approvals employee-blocks ">
+      Employee
+    </div>
+  </div>
+</div>
