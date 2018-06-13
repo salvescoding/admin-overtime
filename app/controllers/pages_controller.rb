@@ -8,4 +8,6 @@ class PagesController < ApplicationController
       @pending_audit_logs = current_user.audit_logs
     end
   end
+
+
 end

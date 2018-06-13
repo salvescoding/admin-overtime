@@ -16,7 +16,17 @@ describe 'Homepage' do
       click_on("approved_#{post.id}")
       expect(post.reload.status).to eql("approved")
     end
+  end
 
+  describe "User Homepage" do
+    it "allows user to confirm no overtime on audit logs" do
+      user = create(:user)
+      audit = create(:audit_log, user_id: user.id)
+      login_as(user, scope: :user)
+      visit root_path
+      click_on("confirmed_#{audit.id}")
+      expect(audit.reload.status).to eql("confirmed")
+    end
   end
 
 end
