@@ -23,8 +23,10 @@ AdminUser.create!(email: "admin@user.com",
 
 puts "admin user and users created"
 
+reasons = ["I have to work a lot", "They broke everything and I have to fix it now"]
+
 12.times do
-  Post.create!(date: Date.today, rationale: Faker::Coffee.blend_name, user_id: @user.id, overtime_request: [2.0, 4.7, 1.5, 20.0].sample)
+  Post.create!(date: Date.today, rationale: reasons.sample, user_id: @user.id, overtime_request: [2.0, 4.7, 1.5, 20.0].sample)
 end
 
 puts "100 posts have been created"
