@@ -7,6 +7,7 @@ class AuditLogsController < ApplicationController
   def confirmed
     audit_log = AuditLog.find(params[:id])
     if audit_log.confirmed!
+      audit_log.update!(end_date: Date.today)
       redirect_to root_path, notice: "You have confirmed your audit log"
     else
       redirect_to root_path

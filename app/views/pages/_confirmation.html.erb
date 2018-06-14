@@ -4,10 +4,10 @@
     <%= audit.user.full_name %>
   </h6>
   <p>
-    <span class="pending-details"> Week starting: </span><%= audit.start_date %>
+    <span class="pending-details"> Week starting: </span><%= start_date(audit) %>
   </p>
     <p>
-    <span class="pending-details"> Confirmed at: </span><%= audit.end_date || 'Waiting to be confirmed' %>
+    <span class="pending-details"> Confirmed at: </span><%= confirmation_date(audit) %>
   </p>
   <p>
     <span class="pending-details"> Status: </span><%= status_label(audit.status) %>

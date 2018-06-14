@@ -23,7 +23,7 @@ AdminUser.create!(email: "admin@user.com",
 
 puts "admin user and users created"
 
-50.times do
+12.times do
   Post.create!(date: Date.today, rationale: Faker::Coffee.blend_name, user_id: @user.id, overtime_request: [2.0, 4.7, 1.5, 20.0].sample)
 end
 
