@@ -7,7 +7,7 @@
     <span class="pending-details"> Week starting: </span><%= audit.start_date %>
   </p>
     <p>
-    <span class="pending-details"> Confirmed at: </span><%= truncate audit.end_date || 'Waiting to be confirmed' %>
+    <span class="pending-details"> Confirmed at: </span><%= audit.end_date || 'Waiting to be confirmed' %>
   </p>
   <p>
     <span class="pending-details"> Status: </span><%= status_label(audit.status) %>

@@ -1,11 +1,13 @@
 <div class="container">
   <div class="row">
+    <% if @pending_audit_logs.count > 0 %>
     <div class="col-md-12 pending-overtime-approvals employee-blocks">
       <h3 class="text-center">Pending your confirmation</h3>
       <%= render partial: "pending_audit_logs", locals: { pending_audit_logs: @pending_audit_logs} %>
     </div>
+    <% end %>
     <div class="col-md-12 pending-overtime-approvals employee-blocks ">
-      Employee
+      <%= link_to  "Request overtime approval", new_post_path, class: "btn btn-block btn-outline-primary" %>
     </div>
   </div>
 </div>
